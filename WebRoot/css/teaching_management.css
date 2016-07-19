@@ -1,0 +1,213 @@
+.div-tchr-curs {
+	overflow: hidden;
+}
+
+.div-tchr-course {
+	clear:both;
+	margin-top: 24px;
+	margin-left: 12%;
+}
+
+.div-tchr-course>label {
+	font-weight: bold;
+	color: #9D4D36;
+	background-color: #DEDEDE;
+	padding: 6px 24px 6px 24px;
+}
+
+.ul-tchr-course {
+	list-style: none;
+}
+
+.ul-tchr-course>li {
+	margin-top: 24px;
+}
+
+.ul-tchr-course>li>img {
+	margin-top: -2px;
+	margin-right: 24px;
+	width: auto;
+	max-width: 100%;
+}
+
+.ul-tchr-course>li>a {
+	color: #4FBBCD;
+}
+
+.ul-tchr-course>li>a:hover {
+	color: red;
+}
+
+/* 成绩评定与查询页面 */
+.img-result-title {
+	width: 100px;
+}
+
+.div-result-import {
+	margin-top: 32px;
+}
+
+.div-result-import label {
+	margin-left: 24px;
+	margin-right: 24px;
+	color: #9A5840;
+}
+
+.btn{
+	margin-top:16px;
+}
+
+.div-select {
+	margin-top:16px;
+	width: 260px;
+	float: left;
+}
+
+select {
+	width: 200px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 0;
+	height: 24px;
+	line-height: 24px;
+	padding: 2px 6px;
+	margin-bottom: 2px;
+	font-size: 12px;
+}
+
+.btn {
+	margin-left: 0;
+}
+
+.th1 {
+	width: 25%;
+}
+
+.th2 {
+	width: 15%;
+}
+
+.th3 {
+	width: 10%;
+}
+
+.th4 {
+	width: 10%;
+}
+
+.th5 {
+	width: 10%;
+}
+
+.th6 {
+	width: 10%;
+}
+
+.th7 {
+	width: 10%;
+}
+
+.th8 {
+	width: 10%;
+}
+
+.width24{
+	width:24%;
+}
+
+.indPointList{
+	text-align:left;
+}
+
+.indPointList label{
+	display:inline-block;
+	margin:0;
+}
+
+.indPointList label input{
+	margin:0;
+}
+/* 成绩评定与查询页面完 */
+
+/* 达成度查询 */
+form {
+	overflow: hidden;
+}
+
+.h-target {
+	margin-top: 24px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+/* 达成度查询 完*/
+/* 下拉多选 */
+.btn-group > .btn {
+   width:120px;
+    margin-top: 0;
+}
+.btn-group > .btn:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    margin-left: 0;
+}
+.btn-group > .btn:last-child, .btn-group > .dropdown-toggle {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.dropdown-menu {
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+#ul-multiselect{
+	width:120px;
+	height:72px;
+	min-width: 100px;
+	overflow-y:auto;
+}
+#ul-multiselect>li{
+	height:24px;
+}
+#ul-multiselect>li>a{
+	padding-top:0px;
+}
+.multiselect-container > li > a > label {
+    cursor: pointer;
+    font-weight: 400;
+    height: 100%;
+    margin: 0;
+    padding-left:12px;
+}
+.div-result-import label {
+    color: black;
+    margin-left: 28px;
+    margin-right: 24px;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: transparent;
+}
+.radio input[type="radio"], .checkbox input[type="checkbox"] {
+    margin-left: 0px;
+    margin-right:8px
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, transparent, transparent);
+    background-repeat: repeat-x;
+    color: #ffffff;
+    outline: 0 none;
+    text-decoration: none;
+}
+
+.course a{
+	display:inline-block;
+	padding:4px 8px;
+	/* background-color:#DCDCDC; */
+	color:black;
+	margin-bottom:4px;
+}
+
+.course a:hover{
+	text-decoration:underline;
+	color:red;
+}

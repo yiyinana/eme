@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<context:component-scan base-package="cn.xidian.dao.impl"/>
+	<context:component-scan base-package="cn.xidian.service.impl"/>
+	<context:component-scan base-package="cn.xidian.web.action"/>
+	<!--  开启注解
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />  
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>  
+	 -->
+	<!-- 配置数据源DataSource -->
+	<context:property-placeholder location="classpath:db.properties"/>
+	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+	<!-- 配置SessionFactory（需要数据源DataSource）  -->
+    <bean id="sessionFactory" 
+    	class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+		 <property name="packagesToScan">
+		 	<list>
+		 		<value>cn.xidian.entity</value>
+		 	</list>
+		 </property>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+    </bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- 配置事务管理器txManager -->
+	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 配置事务属性（需要事务管理器） -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="select*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED"/>
+			<tx:method name="loginValidate" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 配置事务切点，并把切点和事务属性关联起来 -->
+	<aop:config>
+		<aop:pointcut id="bussinessService" 
+			expression="execution(public * cn.xidian.service..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice"
+			pointcut-ref="bussinessService"/>
+	</aop:config>
+	<!-- 
+	<bean id="loginAction" class="cn.xidian.action.LoginAction" scope="prototype">
+		<property name="loginWelcomService" ref="loginWelcomServiceImpl"/>
+	</bean>
+	 -->
+</beans>
+

@@ -1,0 +1,179 @@
+body {
+	margin: 0;
+	background: #fff url('../img/homebackground.png') left top repeat-x;
+	min-width: 1000px;
+	font-family:Microsoft YaHei;
+}
+
+.schoolLogoImg {
+	margin-left: 9%;
+	margin-top: 28px;
+	width: 580px;
+}
+
+.sysNameImg {
+	margin-top: 36px;
+	width:480px;
+}
+
+#leftDiv {
+	margin-top: 36px;
+	padding-left: 5%;
+}
+
+.nav {
+	margin-bottom: 0;
+	margin-left: 0;
+	list-style: none;
+	border-bottom: 18px solid #005478;
+}
+
+.nav>li {
+	margin-right: 6px;
+	width: 100px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer; /*******鼠标移上去改变形状********/
+}
+
+.nav>li>a {
+	display: block;
+	color: black;
+	background-color: white;
+}
+
+.nav-tabs>li {
+	margin-bottom: 0;
+}
+
+.nav-tabs>li>a {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	line-height: 20px;
+	border: 1px solid transparent;
+	-webkit-border-radius: 12px 12px 0 0;
+	-moz-border-radius: 12px 12px 0 0;
+	border-radius: 12px 12px 0 0;
+}
+
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus
+	{
+	background-color: #005478;
+	color: white;
+	border: 1px solid #005480;
+	border-bottom-color: transparent;
+}
+
+.tab-content>.tab-pane {
+	display: none;
+	background-color: white;
+	height: 420px;
+}
+
+.tab-content>.active {
+	display: block;
+}
+
+#loginDiv {
+	margin-top: 100px;
+	background-color: #f2f2f2;
+}
+
+.loginLblDiv{
+	height:28px;
+	background: #fff url('../img/logintop.jpg') left top repeat-x;
+}
+
+.loginLbl{
+	margin-top:4px;
+	margin-left:12px;
+	font-size:16px;
+	font-weight:bold;
+	color:#555555;
+}
+
+.form-horizontal{
+	margin-top:32px;
+}
+
+.control-group {
+	margin-left: 16%;
+	margin-bottom:10px;
+}
+
+.form-horizontal .control-label {
+	float: left;
+	width: 60px;
+	margin-top: -5px;
+	text-align: right;
+}
+
+.form-horizontal .controls {
+	*display: inline-block;
+	*padding-left: 0;
+	margin-left: 0;
+	*margin-left: 0;
+}
+
+.small-input {
+	width: 48.93617021276595%;
+}
+
+.lable-identy{
+	width:60px;
+	display:inline;
+	margin-left:10%;
+}
+
+.lable-identy>input{
+	width:20px;
+	margin-bottom:6px;
+}
+
+hr{
+	width:80%;
+	margin-left:10%;
+	height:1px;
+	border:none;
+	border-top:1px dashed #8E8E8E;
+}
+
+.loginNoteDiv{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:24px;
+}
+/* 内容 */
+.tab-pane{
+	OVERFLOW-Y: auto;
+}
+
+.div-major-inf{
+	width:90%;
+	margin:24px auto 32px auto;
+}
+
+.major-inf-content{
+	color:#0A0A0A;
+	line-height:200%;
+}
+
+.classify{
+	width:160px;
+}
+
+.course a{
+	display:inline-block;
+	padding:4px 8px;
+	/* background-color:#DCDCDC; */
+	color:black;
+	margin-bottom:4px;
+}
+
+.course a:hover{
+	text-decoration:underline;
+	color:red;
+}

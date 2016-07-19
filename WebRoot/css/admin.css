@@ -1,0 +1,231 @@
+@import url(course-detail.css);
+
+body{
+	font-family: '微软雅黑';
+}
+
+/* 管理员首页 */
+.container{
+	overflow:hidden;
+}
+
+.main{
+	width:88%;
+	margin-left:6%;
+}
+
+.div-welcom label{
+	margin-left:12px;
+}
+
+.div-welcom label a{
+	margin-left:12px;
+}
+
+.div-manage{
+	width:120px;
+	height:140px;
+	margin:18px;
+	float:left;
+}
+
+.div-manage:hover{
+	border:1px solid #BDBDBD;
+}
+
+.div-manage img{
+	margin:10px;
+	width:100px;
+	height:100px;
+}
+
+.div-manage p{
+	width:100%;
+	text-align:center;
+}
+/* 管理员首页完 */
+.div-module{
+	margin-top:48px;
+}
+
+
+.div-msg label{
+	color:red;
+} 
+
+.div-select {
+	width: 240px;
+	float: left;
+}
+
+.div-select-s {
+	width: 240px;
+	/* margin-top:8px; */
+	float: left;
+}
+
+select {
+	width: 160px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 0;
+	height: 24px;
+	line-height: 24px;
+	padding: 2px 6px;
+	margin-bottom: 2px;
+	font-size: 12px;
+}
+
+.div-select input{
+	border-radius: 0;
+	width:140px;
+	height:14px;
+	/* margin-top:4px; */
+}
+
+.btn{
+	margin-left:2%;
+}
+
+.div-tchr{
+	width:320px;
+	overflow:hidden;
+	margin:18px 0 12px 8%;
+	float:left;	
+}
+
+.img-head{
+	width:100px;
+	height:140px;
+	float:left;
+}
+
+.div-tchr-detail{
+	overflow:hidden;
+	margin-top:16px;
+	width:100%;
+}
+
+.div-tchr-detail-inf{
+	height:24px;
+	margin-left:124px
+}
+
+.div-tchr-detail-inf h6{
+	display:inline;
+}
+
+.a{
+	margin-top:12px;
+}
+
+.top0{
+	margin-top:0;
+}
+
+/* 添加教师 */
+.form-add{
+	margin-top:32px;
+	overflow:hidden;
+}
+
+.control-group-left{
+	float:left;
+	width:360px;
+}
+
+.controls input{
+	height:18px;
+}
+
+.form-horizontal .control-label {
+    width: 120px;
+}
+
+.form-horizontal .controls {
+    margin-left: 140px;
+}
+
+.input-btn{
+	height:24px;
+	margin-bottom:4px;
+}
+/* 信息列表 */
+.form-search{
+	overflow:hidden;
+	margin-top:32px;
+}
+
+.th-opr{
+	width:120px;
+}
+
+.margin12{
+	margin-left:12%;
+}
+
+/* 管理员信息设置 */
+
+.div-admin-list{
+	overflow:hidden;
+}
+
+.img-admin{
+	float:left;
+	width:72px;
+}
+
+.div-admin-edit{
+	height:24px;
+	margin-left:96px;
+}
+
+.div-admin-edit h6{
+	display:inline;
+}
+
+.div-add-admin{
+	width:320px;
+	overflow:hidden;
+	margin:18px 0 12px 8%;
+}
+
+#form-add-admin{
+	display:none;
+}
+
+.title-per-rule{
+	margin-left:16px;
+	font-weight:bold;
+	float:left;
+}
+
+.div-per-rule{
+	margin-right:12px;
+	float:left;
+}
+
+.div-per-rule input{
+	width:24px;
+	height:14px;
+}
+
+.width32{
+	width:32px;
+}
+
+.div-tchr-name-list{
+	float:left;
+	width:160px;
+	margin-top:4px;
+	
+}
+
+.border0{
+	border:0;
+	width:100%;
+}
+
+.div-tchr-name-list input{
+	margin-top:-4px;
+}

@@ -1,0 +1,155 @@
+/* 管理员登录 */
+body{
+	min-width: 980px;
+	font-family: '微软雅黑';
+}
+
+.logintop {
+	height: 47px;
+	position: absolute;
+	top: 0;
+	background: url('../img/loginbg1.png') repeat-x;
+	z-index: 100;
+	width: 100%;
+}
+
+.logintop span {
+	margin: 0;
+	padding: 0;
+	display: block;
+	color: #fff;
+	line-height: 47px;
+	background: url('../img/loginsj.png') no-repeat 21px 18px;
+	text-indent: 44px;
+	color: #afc5d2;
+	float: left;
+}
+
+.loginbody {
+	background: url('../img/loginbg3.png') no-repeat center center;
+	width: 100%;
+	height: 585px;
+	overflow: hidden;
+	position: absolute;
+	top: 47px;
+}
+
+.loginbox {
+	position: absolute;
+	left:337px;
+	width: 692px;
+	height: 336px;
+	background: url('../img/logininfo.png') no-repeat;
+	margin-top: 30px;
+}
+
+.tsloginbox {
+	position: absolute;
+	left:337px;
+	width: 692px;
+	height: 336px;
+	background: url('../img/tslogininfo.png') no-repeat;
+	margin-top: 30px;
+}
+
+.div-login{
+	margin: 0;
+	padding: 0;
+	margin-top: 88px;
+	margin-left: 285px;
+}
+
+.input-prepend{
+	margin-bottom:18px;
+}
+
+.input-prepend .add-on {
+    width: 36px;
+    height: 36px;
+}
+
+.add-on img{
+	width: 36px;
+    height: 36px;
+}
+
+input[type="text"],input[type="password"]{
+	width: 240px;
+    height: 36px;
+}
+
+
+.loginbox a {
+	font-size:12px;
+	color: #687f92;
+	padding-left: 16px;
+}
+
+.loginbox a:hover {
+	color: #3d96c9;
+	/* text-decoration:none; */
+}
+
+.loginbox input {
+	margin-right: 5px;
+	background-color:transparent;
+}
+
+
+.loginuser {
+	width: 299px;
+	height: 48px;
+	background: url('../img/loginuser.png') no-repeat;
+	border: none;
+	line-height: 48px;
+	padding-left: 44px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.loginpwd {
+	width: 299px;
+	height: 48px;
+	background: url('../img/loginpassword.png') no-repeat;
+	border: none;
+	line-height: 48px;
+	padding-left: 44px;
+	font-size: 14px;
+	color: #90a2bc;
+}
+
+.loginbtn {
+	height: 35px;
+	background: url('../img/buttonbg.png') repeat-x;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	line-height: 35px;
+	margin-right: 18px;
+}
+
+input[type="submit"],input[type="reset"]{
+	width: 100px;
+}
+
+.div-btn{
+	margin-top:12px;
+}
+
+.loginbm {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: url('../img/loginbg2.png') repeat-x;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: #0b3a58;
+}
+/* 管理员登录 完*/
+.lable-identy{
+	width:60px;
+	display:inline;
+	margin-left:10%;
+}

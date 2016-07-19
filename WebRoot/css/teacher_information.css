@@ -1,0 +1,70 @@
+/**********基本信息***********/
+.div-tchr-basic-inf{
+	overflow:hidden;
+}
+
+.div-tchr-basic-inf-left h5{
+	margin-left:16%;
+}
+
+.div-tchr-basic-inf-left{
+	width:60%;
+	float:left;
+}
+
+.div-tchr-basic-inf-right{
+	width:30%;
+	height:160px;
+	float:right;
+}
+
+.div-tchr-basic-inf-1{
+	padding-top:5px;
+	margin-bottom:10px;
+	overflow:hidden;
+}
+
+.div-tchr-basic-inf-1-1{
+	text-align:right;
+	width:32%;
+	height:24px;
+	float:left;
+	padding-top:6px;	
+}
+
+.div-tchr-basic-inf-1-2{
+	width:64%;
+	height:24px;
+	padding-top:6px;
+	padding-left:1%;
+	background-color:#DEDEDC;
+	float:right;
+	
+}
+
+.img-head{
+	margin-top:12px;
+	width:120px;
+	height:160px;
+}
+
+.div-tchr-self-intr{
+	width:70%;
+	margin-left:10%;
+	margin-top:16px;
+}
+
+.div-tchr-self-intr-content{
+	margin-left:4%;
+}
+
+.textarea-selfIntr{
+	width:60%;
+	margin-left:21px;
+	height:100px;
+}
+/**********基本信息完***********/
+
+/**********研究成果***********/
+
+/**********研究成果完***********/

@@ -1,0 +1,29 @@
+.img-stu{
+	width:100px;
+}
+
+.img-stu img{
+	width:auto;
+	max-width:100%;
+}
+
+.div-self-intr{
+	text-align:center;
+	padding-top:16px;
+	margin-bottom:24px;
+}
+
+.div-self-intr>img{
+	width:64px;
+}
+
+.div-self-content{
+	width:85%;
+	margin:8px auto 8px auto;
+	border:1px solid #DEDEDE;
+	padding:16px 12px 24px 12px;
+	text-align:left;
+}
+
+
+

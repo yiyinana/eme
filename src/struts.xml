@@ -1,0 +1,150 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.multipart.maxSize" value="10485760" />
+	<package name="system" extends="struts-default,json-default"
+		namespace="/">
+		<!-- 定义一个拦截器 -->
+		<interceptors>
+			<interceptor name="authority"
+				class="cn.xidian.interceptor.LoginInterceptor">
+			</interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="securityStack">
+				<!-- <interceptor-ref name="defaultStack" /> -->
+				<interceptor-ref name="authority" />
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<!-- 当返回"tsLogin"时，转入/login.jsp页面 -->
+			<result name="tsLogin">/login_frame.jsp</result>
+		</global-results>
+		<!-- 登录 -->
+		<action name="loginAction" class="loginAction" method="loginValidate">
+			<!-- <result name="teacher" type="chain">Teacher_Information_1_selectBasicInf</result> -->
+			<result name="student" type="chain">Student_Information_1_selectBasicByNum
+			</result>
+			<result name="teacher" type="chain">Teacher_Information_1_selectInfByNum
+			</result>
+			<result name="admin">admin/AdminHome1.jsp</result>
+			<result name="TSFalse">/login_frame.jsp</result>
+			<result name="AFalse">/AdminLogin.jsp</result>
+		</action>
+		<action name="loginOutAction" class="loginAction" method="loginOut">
+			<result type="chain">selectMajorInf</result>
+		</action>
+		<action name="adminLoginOutAction" class="loginAction" method="adminLoginOut">
+			<result>/AdminLogin.jsp</result>
+		</action>
+		<action name="selectMajorInf" class="MajorAction" method="selectMajorInf">
+			<result name="login">/login_frame.jsp</result>
+		</action>
+		<!-- admin相关 -->
+		<action name="Admin_*_*_*" class="AdminAction" method="{3}">
+			<result name="admin">/admin/Admin{1}{2}.jsp</result>
+			<result name="adminAdminList" type="chain">Admin_Modify_1_selectAllAdmin
+			</result>
+			<result name="adminAdminListR" type="redirectAction">Admin_Modify_1_selectAllAdmin
+			</result>
+			<result name="adminMajorInfo" type="redirect">Admin_MajorInformation_Modify_selectAllTchrs
+			</result>
+		</action>
+		<action name="AdminTeacher_*_*_*" class="AdminTeacherAction"
+			method="{3}">
+			<result name="admin">/admin/AdminTeacher{1}{2}.jsp</result>
+			<result name="adminTeacherList" type="chain">AdminTeacher_List_1_selectAllTchrs
+			</result>
+		</action>
+		<action name="AdminStudent_*_*_*" class="AdminStudentAction"
+			method="{3}">
+			<result name="admin">/admin/AdminStudent{1}{2}.jsp</result>
+			<result name="adminStudentList" type="chain">AdminStudent_List_1_selectAllStus
+			</result>
+			<result name="adminStudentDetail" type="chain">AdminStudent_Information_1_selectStudentBySchNum
+			</result>
+		</action>
+		<action name="AdminCourse_*_*_*" class="AdminCourseAction"
+			method="{3}">
+			<result name="adminCourseList" type="chain">AdminCourse_List_1_selectAllCurs
+			</result>
+			<result name="adminAddCourse" type="chain">AdminCourse_Add_1_selectDeptmentAndThr
+			</result>
+			<result name="admin">/admin/AdminCourse{1}{2}.jsp</result>
+		</action>
+		<action name="Major_*_*_*" class="MajorAction" method="{3}">
+			<result name="login">/login_frame.jsp</result>
+		</action>
+		<!-- admin相关完 -->
+		<!-- 课程详情相关 -->
+		<action name="Course_*_*_*" class="CourseAction" method="{3}">
+			<result name="course">/course/Course{1}{2}.jsp</result>
+			<result name="adminCourseList" type="chain">AdminCourse_List_1_selectAllCurs
+			</result>
+			<result name="teacherCourseList" type="chain">Teacher_Management_1_selectTchrCourse
+			</result>
+			<result name="false" type="chain">Major___selectMajorInf</result>
+		</action>
+		<!-- 课程详情相关完 -->
+		<!-- student相关始 -->
+		<action name="Student_*_*_*" class="StudentAction" method="{3}">
+			<result name="student">/student/Student{1}{2}.jsp</result>
+			<result name="stuActList" type="chain">Student_Portfolio_Activity_selectActivity
+			</result>
+			<result name="stuItemList" type="chain">Student_Award_1_selectItem
+			</result>
+			<result name="false" type="chain">Major___selectMajorInf</result>
+		</action>
+		<!-- student相关完 -->
+
+		<!-- 老师&学生 -->
+		<!-- 命名规则：身份_类型_类型_方法 -->
+		<action name="*_*_*_*" class="{1}Action" method="{4}">
+			<result name="login">/login_frame.jsp</result>
+			<result name="teacher">/teacher/{1}{2}{3}.jsp</result>
+			<result name="teacherModify" type="chain">Teacher_Information_Modify_selectInfByNum
+			</result>
+			<result name="tchrManagement4" type="chain">Teacher_Management_4_excute
+			</result>
+			<result name="tchrManagement5" type="chain">Teacher_Management_5_excute
+			</result>
+			<result name="tchrCursEvaluate" type="chain">Teacher_Course_Evaluate_selectTargetEvaByCursId
+			</result>
+			<result name="teacherCourseList" type="chain">Teacher_Management_1_selectTchrCourse
+			</result>
+			<result name="teacherManager1" type="chain">TeacherCourse_Manager_1_selectAllPoints
+			</result>
+			<result name="targetDetail">/teacher/TeacherPointValueDetail.jsp
+			</result>
+			<result name="teacherStudentDetail" type="chain">TeacherStudent_Information_1_selectStudentBySchNum
+			</result>
+			<result name="teacherStudentList" type="redirect">TeacherStudent_List_1_selectAllStus
+			</result>
+			<interceptor-ref name="securityStack"></interceptor-ref>
+		</action>
+
+		<!-- 上传文件 -->
+		<action name="FileUpload" class="cn.xidian.web.action.FileUploadAction"
+			method="uploadFile">
+			<result>teacher/TeacherManagement4.jsp</result>
+		</action>
+		<action name="FileDown_*" class="cn.xidian.web.action.FileDownAction"
+			method="{1}">
+			<result name="success" type="stream">
+				<param name="inputName">fileInput</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+			</result>
+		</action>
+		<!-- 测试 -->
+
+		<action name="Json_*" class="JsonAction" method="{1}">
+			<result name="list" type="json"></result>
+		</action>
+	</package>
+
+</struts>
