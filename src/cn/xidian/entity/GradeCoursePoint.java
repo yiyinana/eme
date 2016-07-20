@@ -19,7 +19,16 @@ public class GradeCoursePoint {//某年级某课程某指标点的达成度评�
 	private String grade;//哪一级，16.5.9新增
 	private Double cursPower;//课程对毕业要求指标点的权重值
 	private Double cursEvaValue;//课程指标点评价值
+	private Integer isDelete;//是否已删除。0为未删除，1为删除
 	
+	public Integer getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(Integer isDelete) {
+		this.isDelete = isDelete;
+	}
+
 	@Id
 	@GeneratedValue
 	public Integer getGcpId() {

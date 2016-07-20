@@ -67,6 +67,9 @@
 							<div class="div-radar">
 								<canvas id="canvas" width="450px" height="450px"></canvas>
 							</div>
+							<div>
+							<label class="text-style">注：M1：思想道德素质，M2：专业理论素质，M3：创新精神与实践能力，M4：文化素质，M5：身心素质</label>
+						</div>
 						</div>
 					</div>
 				</div>

@@ -54,7 +54,7 @@
 									value="gradeCoursePoints.{?#this.point.indPointId==#mtv.point.indPointId}"
 									var="gcp" status="s">
 									<tr class="<s:property value="#mtv.point.indPointId" />">
-										<td class="left"><s:property value="#mtv.point.indPointNum" /> <s:property
+										<td  class="left"><s:property value="#mtv.point.indPointNum" /> <s:property
 												value="#mtv.point.indPointContent" /></td>
 										<td><s:property value="#gcp.course.cursName" /></td>
 										<td><s:property value="#gcp.cursPower" /></td>

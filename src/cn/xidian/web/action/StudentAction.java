@@ -220,6 +220,7 @@ public class StudentAction extends ActionSupport implements RequestAware {
 		item = studentItemService.selectItemInfo(itemId);
 		if (!item.getItemScore().toString().equals("0")) {
 			request.put("Message", "已审核，不允许删除！");
+			return "stuItemList";
 		}
 		// 删除图片
 		String realPath = ServletActionContext.getServletContext().getRealPath("/upload");// 实际路径
@@ -270,11 +271,14 @@ public class StudentAction extends ActionSupport implements RequestAware {
 			savedir.getParentFile().mkdirs();
 		for (int i = 0; i < file.length; i++) {
 			ItemFile itemFile = new ItemFile();// 实例化ItemFile
-			File savefile = new File(savedir, fileNewName + '_' + fileFileName[i]);
 			String suffix = fileFileName[i].substring(fileFileName[i].lastIndexOf(".") + 1);
+			int random=(int)(1+Math.random()*10);
+			char c=(char)(int)(Math.random()*26+97);
+			File savefile = new File(savedir, fileNewName + '_' + c +random +'.'+suffix);
 			FileUtils.copyFile(file[i], savefile);
 			itemFile.setFileName(fileFileName[i]);
-			itemFile.setSaveFileName(fileNewName + '_' + fileFileName[i]);
+			itemFile.setSaveFileName(fileNewName + '_' +c+ random+'.'+suffix);
+			System.out.println((int)(1+Math.random()*10));
 			itemFile.setStudentItem(item);
 			itemFile.setFileType(suffix);
 			studentItemService.saveAttachment(itemFile);

@@ -143,7 +143,7 @@ public class TeacherStudentDaoImpl implements TeacherStudentDao {
 	@Override
 	public boolean deleteEvas(Integer claId, String schoolYear) {
 		// TODO Auto-generated method stub
-		String sql="delete from EvaluateResult where claId=? and schoolYear=?";
+		String sql="delete from EvaluateResult  where claId=? and schoolYear=?";
 		Query query=currentSession().createQuery(sql);
 		query.setInteger(0, claId);
 		query.setString(1, schoolYear);

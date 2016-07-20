@@ -41,7 +41,7 @@ public class GradeCoursePointDaoImpl implements GradeCoursePointDao{
 	public List<GradeCoursePoint> selectByCursIdAndPointId(Integer cursId,
 			Integer pointId) {
 		List<GradeCoursePoint> gcp = new LinkedList<GradeCoursePoint>();
-		String sql = "from GradeCoursePoint g where g.course.cursId=? and g.point.indPointId=?";
+		String sql = "from GradeCoursePoint g where g.course.cursId=? and g.point.indPointId=? and g.isDelete=0";
 		Query query = currentSession().createQuery(sql);
 		query.setInteger(0, cursId).setInteger(1, pointId);
 		gcp.addAll(query.list());
@@ -52,7 +52,7 @@ public class GradeCoursePointDaoImpl implements GradeCoursePointDao{
 	@Override
 	public List<GradeCoursePoint> selectByPointId(Integer pointId) {
 		List<GradeCoursePoint> gcp = new LinkedList<GradeCoursePoint>();
-		String sql = "from GradeCoursePoint g where g.point.indPointId=?";
+		String sql = "from GradeCoursePoint g where g.point.indPointId=? and g.isDelete=0";
 		Query query = currentSession().createQuery(sql);
 		query.setInteger(0, pointId);
 		gcp.addAll(query.list());
@@ -64,7 +64,7 @@ public class GradeCoursePointDaoImpl implements GradeCoursePointDao{
 			GradeCoursePoint gradeCursPoints, String grade) {
 		String sql = "update GradeCoursePoint g "
 				+ "set g.cursPower=? "
-				+ "where g.point.indPointId=? and g.course.cursId=? and g.grade=?";
+				+ "where g.point.indPointId=? and g.course.cursId=? and g.grade=? and g.isDelete=0";
 		Query query = currentSession().createQuery(sql);
 		query.setDouble(0, gradeCursPoints.getCursPower());
 		query.setInteger(1, gradeCursPoints.getPoint().getIndPointId());
@@ -79,7 +79,7 @@ public class GradeCoursePointDaoImpl implements GradeCoursePointDao{
 	public List<GradeCoursePoint> selectByCursIdAndGrade(Integer cursId,
 			String grade) {
 		List<GradeCoursePoint> gcp = new LinkedList<GradeCoursePoint>();
-		String sql = "from GradeCoursePoint g where g.course.cursId=? and g.grade=?";
+		String sql = "from GradeCoursePoint g where g.course.cursId=? and g.grade=? and g.isDelete=0";
 		Query query = currentSession().createQuery(sql);
 		query.setInteger(0, cursId).setString(1, grade);
 		gcp.addAll(query.list());
@@ -91,7 +91,7 @@ public class GradeCoursePointDaoImpl implements GradeCoursePointDao{
 	public List<GradeCoursePoint> selectByPointIdAndGrade(Integer pointId,
 			String grade) {
 		List<GradeCoursePoint> gcp = new LinkedList<GradeCoursePoint>();
-		String sql = "from GradeCoursePoint g where g.point.indPointId=? and grade=?";
+		String sql = "from GradeCoursePoint g where g.point.indPointId=? and grade=? and isDelete=0";
 		Query query = currentSession().createQuery(sql);
 		query.setInteger(0, pointId).setString(1, grade);
 		gcp.addAll(query.list());
@@ -102,11 +102,20 @@ public class GradeCoursePointDaoImpl implements GradeCoursePointDao{
 	@Override
 	public List<GradeCoursePoint> selectByGrade(String grade) {
 		List<GradeCoursePoint> gcp = new LinkedList<GradeCoursePoint>();
-		String sql = "from GradeCoursePoint g where g.grade=?";
+		String sql = "from GradeCoursePoint g where g.grade=? and isDelete=0";
 		Query query = currentSession().createQuery(sql);
 		query.setString(0, grade);
 		gcp.addAll(query.list());
 		return gcp;
+	}
+	
+	@Override
+	public boolean deleteByCursId(Integer cursId) {
+		String sql = "update GradeCoursePoint g set g.isDelete=1 where g.course.cursId=?";
+		Query query = currentSession().createQuery(sql);
+		query.setInteger(0, cursId);
+		query.executeUpdate();
+		return true;
 	}
 
 }

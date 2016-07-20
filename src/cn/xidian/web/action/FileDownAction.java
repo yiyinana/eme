@@ -23,14 +23,12 @@ public class FileDownAction extends ActionSupport implements RequestAware {
 	public String downFile() throws Exception {
 		String downFileName = new String(saveFileName.getBytes("ISO8859-1"), "utf-8");
 		fileInput = ServletActionContext.getServletContext().getResourceAsStream("help\\" + downFileName);
-		System.out.println("地址" + downFileName + fileInput);
 		request.put("Message", "下载成功！");
 		return "success";
 	}
 	public String downStuFile() throws Exception {
-		
-		fileInput = ServletActionContext.getServletContext().getResourceAsStream("upload\\" + saveFileName);
-		System.out.println("地址" + saveFileName + fileInput);
+		String downFileName = new String(saveFileName.getBytes("ISO8859-1"), "utf-8");
+		fileInput = ServletActionContext.getServletContext().getResourceAsStream("upload\\" + downFileName);
 		request.put("Message", "下载成功！");
 		return "success";
 	}

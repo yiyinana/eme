@@ -130,6 +130,8 @@ public class CourseServiceImpl implements CourseService {
 
 		Integer n = ccps.size() / cps.size();// 总共有几个班级
 
+		gradeCoursePointDao.deleteByCursId(cursId);
+		
 		for (int i = 0; i < cps.size(); i++) {// 课程对指标点的达成度评价值等于每个班级该门课程评价值的平均值
 			Double evaluateValue = 0.0;
 			for (int j = 0; j < ccps.size(); j++) {
@@ -139,15 +141,14 @@ public class CourseServiceImpl implements CourseService {
 				}
 			}
 
-			List<GradeCoursePoint> gcpTemp = gradeCoursePointDao
-					.selectByCursIdAndPointId(cursId, cps.get(i).getIndPoint()
-							.getIndPointId());
+			/*List<GradeCoursePoint> gcpTemp = gradeCoursePointDao
+					.selectByCursId(cursId);
 			if (gcpTemp.size() > 0) {
 				for (int k = 0; k < gcpTemp.size(); k++) {
 					gradeCoursePointDao.delete(gcpTemp.get(k));
 				}
-			}
-
+			}*/
+		
 			Course course = new Course();
 			course.setCursId(cursId);
 			GradeCoursePoint gcp = new GradeCoursePoint();// 某年级某课程某指标点达成度评价值
@@ -155,6 +156,7 @@ public class CourseServiceImpl implements CourseService {
 			gcp.setPoint(cps.get(i).getIndPoint());
 			gcp.setGrade(grade);
 			gcp.setCursEvaValue(evaluateValue / n);
+			gcp.setIsDelete(0);
 			gradeCoursePointDao.save(gcp);
 		}
 

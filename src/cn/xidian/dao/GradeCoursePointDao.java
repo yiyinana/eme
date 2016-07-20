@@ -23,4 +23,6 @@ public interface GradeCoursePointDao {
 	
 	List<GradeCoursePoint> selectByGrade(String grade);
 	
+	boolean deleteByCursId(Integer cursId);
+	
 }

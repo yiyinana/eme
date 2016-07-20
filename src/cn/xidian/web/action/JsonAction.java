@@ -1,13 +1,13 @@
 package cn.xidian.web.action;
 
-import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.annotation.Resource;
 
 import org.apache.struts2.interceptor.RequestAware;
-import org.apache.xmlbeans.impl.xb.xmlconfig.NamespaceList.Member2.Item;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -51,6 +51,8 @@ public class JsonAction extends ActionSupport implements RequestAware {
 	private List<StudentCourse> studentCourses;
 	private Student s;
 	private MaxEva maxEva;
+	private Date startTime;
+	private Date endTime;
 
 	Map<String, Object> session = ActionContext.getContext().getSession();
 	User tUser = (User) session.get("tUser");
@@ -90,7 +92,10 @@ public class JsonAction extends ActionSupport implements RequestAware {
 	}
 
 	public String evaluateSummaryByClazz() {
-
+		
+		System.out.println(startTime);
+		System.out.println(endTime);
+		
 		stus = teacherStudentService.selectChargeStus(clazz);
 		cla = teacherStudentService.selectClazzById(clazz);
 		evaluateResults = teacherStudentService.selectSummaryEva(clazz, schoolYear);
@@ -137,6 +142,7 @@ public class JsonAction extends ActionSupport implements RequestAware {
 			evaluateResult.setClazz(cla);
 			evaluateResult.setStudent(element);
 			teacherStudentService.addEvaScore(evaluateResult);
+
 		}
 		return "list";
 	}
@@ -176,7 +182,7 @@ public class JsonAction extends ActionSupport implements RequestAware {
 		String schNum = tUser.getSchNum();
 		s = studentService.selectInfBySchNum(schNum);
 		evaluateResult = studentService.selectEvaluateResult(s.getStuId(), schoolYear);
-		maxEva=teacherStudentService.selectMaxEva(schoolYear);
+		maxEva = teacherStudentService.selectMaxEva(schoolYear);
 		return "list";
 	}
 
@@ -321,5 +327,23 @@ public class JsonAction extends ActionSupport implements RequestAware {
 	public void setMaxEva(MaxEva maxEva) {
 		this.maxEva = maxEva;
 	}
+
+	public Date getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+
+	public Date getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+
+	
 
 }
